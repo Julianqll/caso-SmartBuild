@@ -1,4 +1,13 @@
+import sys
+from pathlib import Path
+
 import streamlit as st
+
+# Garantiza que el paquete raíz esté en sys.path cuando se ejecuta con `streamlit run`.
+ROOT_DIR = Path(__file__).resolve().parent.parent
+if str(ROOT_DIR) not in sys.path:
+    sys.path.append(str(ROOT_DIR))
+
 from app.services import estimar_tiempo_preparacion, registrar_reserva
 
 
